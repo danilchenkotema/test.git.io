@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/css/form.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="dialog mobordermodal">
+    <b class="title">АРЕНДУЙТЕ БОКС</b>
+    <form id="moborder" name="moborder" method="post" accept-charset="utf-8" onsubmit="return false">
+        <div class="open forms">
+            <p class="stepname">
+                <span>Шаг 1:</span>
+                ВЫБОР БОКСА
+            </p>
+            <div class="inside">
+                <div class="box">
+                    <div class="item">
+                        <label>Размер ячейки</label>
+                        <select name="box">
+                            <option value="S" data_promo_sale="0" data_cost="1200">S</option>
+                            <option value="M" data_promo_sale="1" data_cost="6720">M</option>
+                            <option value="L" data_promo_sale="2" data_cost="37100">L</option>
+                            <option value="XL" data_promo_sale="3" data_cost="38500">XL</option>
+                        </select>
+                    </div>
+                    <div class="item">
+                        <label>Размер</label>
+                        <select name="box">
+                            <option value="1-4,5м" data_promo_sale="0" data_cost="1200">1-4,5 м</option>
+                            <option value="5-8,5м" data_promo_sale="1" data_cost="6720">5-8,5 м</option>
+                            <option value="10-14,5м" data_promo_sale="2" data_cost="37100">10 м, 10,5 м; 13м; 13,5м; 14,5 м</option>
+                            <option value="15м" data_promo_sale="3" data_cost="38500">15 м</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <label>С какой даты</label>
+                            <input type="date" placeholder="22 декабря" name="date">
+                        </div>
+                        <div class="item">
+                            <label>На какой период</label>
+                            <select name="period" class="period">
+                                <option data_koff="1">1 месяц</option>
+                                <option data_koff="2">2 месяца</option>
+                                <option data_koff="3">3 месяца</option>
+                                <option data_koff="4">4 месяца</option>
+                                <option data_koff="5">5 месяцев</option>
+                                <option data_koff="6">6 месяцев</option>
+                                <option data_koff="7">7 месяцев</option>
+                                <option data_koff="8">8 месяцев</option>
+                                <option data_koff="9">9 месяцев</option>
+                                <option data_koff="10">10 месяцев</option>
+                                <option data_koff="11">11 месяцев</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="cost">
+                        1200
+                    </div>
+                </div>
+            </div>
+            <div class="morebox">
+                <span>+</span>
+                Добавить бокс
+            </div>
+            <div class="item promocode" data_promo="sovabox" data_saleoff="[0.5,0.5,0.1,0.1]">
+                <input type="text" placeholder="Введите промокод" name="promo">
+                <button class="check" data_value="promocode">ПРОВЕРИТЬ</button>
+                <div class="all_sum">
+                    <label>ИТОГО:</label>
+                    <br>
+                    <b>
+                        1200
+                    </b>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

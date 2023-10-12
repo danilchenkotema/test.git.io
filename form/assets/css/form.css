@@ -1,0 +1,376 @@
+:root {
+    --st_transotion: all 0.3s linear;
+    --btn-shadow: 0 15px 40px #00000014;
+    --green-btn: linear-gradient(180deg, #FDFF8F 0%, #BCCC00 70%,#D1DE2B 81%, #D1DE2B 85%,#E2F139 90%, #E2F139 100%);
+    --object-color: linear-gradient(180deg, #dbdd1a, #e8f62f);
+    --object-shadow: drop-shadow(-50px 60px 0 #e2e2e2);
+    --object-shadow-color: #e2e2e2;
+    --promo-color:#029322;
+    --link-hover: #E2F139;
+    --link-active: #D1DE2B;
+}
+@font-face {
+    font-family: 'Tactic Sans';
+    src: local('Tactic Sans'),
+    url("../fonts/TacticSans-Lgt.woff") format("woff");
+}
+@font-face {
+    font-family: 'Tactic Sans Bold';
+    src: local('Tactic Sans'),
+    url("../fonts/TacticSans-Bld.woff") format("woff");
+}
+body {
+    text-decoration: none;
+    font-family: Tactic Sans;
+    font-weight: normal;
+    color: #292929;
+    letter-spacing: 0.02em;
+}
+div.dialog {
+    max-height: 100vh;
+    opacity: 1;
+    transition: var(--st_transotion);
+    position: fixed;
+    box-shadow: -10px 20px 15px rgb(0 0 0 / 50%);
+    transform: translateY(0);
+    max-width: 620px;
+    box-sizing: border-box;
+    top: 50%;
+    z-index: 1100;
+    overflow: auto;
+    transform: translate(0, -50%);
+    margin: 0 auto;
+}
+div.dialog_overlay {
+    content: " ";
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+}
+div.dialog.preview {
+    opacity: 0;
+    transform: translate(0, -40%);
+}
+div.dialog.gone {
+    opacity: 0;
+    transform: translate(0, -60%);
+}
+div.dialog div.blockname span i {
+    margin: 0 16px 0 0;
+}
+div.dialog div#send {
+    padding: 40px;
+    font-size: 1.4rem;
+    color: #2b2b2d;
+    text-align: center;
+}
+section.topbl div.right div.images.start img{
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-property: opacity, transform;
+    opacity: 0;
+    transform: translate(100px, -50px);
+}
+section.topbl div.right div.images img{
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    transition-property: opacity, transform;
+}
+section.topbl div.right div.images img:nth-child(1) {
+    transition-delay: 0.3s;
+}
+section.topbl div.right div.images img:nth-child(2) {
+    transition-delay: 0.6s;
+}
+section.topbl div.right div.images img:nth-child(3) {
+    transition-delay: 1.2s;
+}
+section.topbl div.right div.images img:nth-child(4) {
+    transition-delay: 0.9s;
+}
+section.topbl div.right div.images img:hover {
+    transform: translate(-20px, 10px);
+    transition-delay: 0s;
+}
+p.mnu_center {
+    text-align: center;
+}
+div.box div.cost, div.all_sum b, div.box_itog div.cost {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 16px 0 0 0;
+    text-align: right;
+    position: relative;
+    padding-right: 46px;
+}
+div.box_itog div.cost {
+    margin: 0;
+}
+div.box div.cost:before, div.all_sum b:before, div.box_itog div.cost:before {
+    content: "Руб";
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+div.item.promocode {
+    /*background-color: #e9fa32;*/
+    padding: 3px 12px;
+    flex-direction: row;
+    align-items: center;
+}
+div.promocode div:first-child {
+    width: 35%;
+    color: black;
+}
+div.promocode div:first-child input {
+    width: 100%;
+}
+div.promocode div:last-child {
+    width: 35%;
+}
+div.promocode div:last-child label {
+    font-size: 1.2rem !important;
+}
+div.item.promocode button {
+    border-radius: 4px;
+    background-color: #e6f12b;
+    font-family: "Tactic Sans";
+    width: 40%;
+    height: 2.5rem;
+    font-size: 1rem;
+    margin: 20px;
+    border: 1px solid #e6f12b;
+    cursor: pointer;
+    --notchSize: 10px;
+    clip-path:
+            polygon(
+                    0% var(--notchSize),
+                    var(--notchSize) 0%,
+                    calc(100% - var(--notchSize)) 0%,
+                    100% 0px,
+                    100% calc(100% - var(--notchSize)),
+                    calc(100% - var(--notchSize)) 100%,
+                        /*var(--notchSize) 100%,*/
+                    0% calc(100% - 0px)
+            );
+}
+.mobordermodal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: white;
+    z-index: 9999;
+    width: 95%;
+    padding: 50px;
+    border: 1px solid
+}
+.mobordermodal b.title {
+    margin: 0;
+}
+#moborder .forms {
+    padding: 10px 0;
+    display: block;
+}
+#moborder .open p.stepname {
+    background: #e6f12b;
+    border: 0;
+    --notchSize: 10px;
+    clip-path:
+            polygon(
+                    0% var(--notchSize),
+                    var(--notchSize) 0%,
+                    calc(100% - var(--notchSize)) 0%,
+                    100% 0px,
+                    100% calc(100% - var(--notchSize)),
+                    calc(100% - var(--notchSize)) 100%,
+                        /*var(--notchSize) 100%,*/
+                    0% calc(100% - 0px)
+            );
+}
+div:not(.open) p.stepname:hover {
+    background: #edff3882;
+}
+#moborder p.stepname {
+    margin: 0;
+    padding: 15px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /*border-radius: 10px;*/
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+#moborder p.stepname span {
+    margin: 0 15px;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 800;
+}
+#moborder .open .inside {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+#moborder .inside {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+#moborder .forms{
+margin-top: 0;
+}
+#moborder .inside .item {
+    margin-top: 20px;
+}
+#moborder .open .inside .box .item:first-child {
+    margin: 0;
+}
+#moborder .open .inside .box .item:first-child {
+    margin: 0;
+}
+#moborder .box {
+    /*background: #cbcbcb;*/
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin: 5px 0 0;
+}
+#moborder input, #moborder select {
+    font-size: 18px;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid rgba(219, 222, 224, 0.5);
+    border-radius: 0;
+    font-weight: 600;
+    padding: 10px 0;
+}
+#moborder .period {
+height: 48.5px;
+}
+#moborder .box .row {
+    justify-content: space-between;
+    display: flex;
+    align-items: flex-end;
+}
+#moborder .box .row .item {
+    width: 49%;
+}
+#moborder div.morebox {
+    padding: 10px 15px;
+    font-weight: 400;
+    font-size: 24px;
+    /*background: #ebebeb;*/
+    line-height: 1;
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    /*color: #7a7a7a;*/
+}
+#moborder .box .item label {
+    opacity: 0.7;
+}
+
+#moborder div.morebox {
+    padding: 5px 15px 10px;
+    font-weight: 400;
+    font-size: 24px;
+    /*background: #ebebeb;*/
+    line-height: 1;
+    border-radius: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    /*color: #7a7a7a;*/
+}
+#moborder div.morebox span {
+    font-weight: 800;
+    color: black;
+    font-size: 28px;
+    margin-right: 10px;
+}
+#moborder .forms button.greenbtn{
+    margin: 10px 0;
+}
+
+form label.radiolabel {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 26px;
+    border-radius: 7px;
+    font-family: 'SF UI Display';
+    color: black;
+    opacity: 0.7;
+    margin: 10px 0;
+}
+form .item {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(219, 222, 224, 0.5);
+}
+form .item label {
+    font-size: 14px;
+    opacity: 0.4;
+    margin-bottom: 6px;
+}
+form .item textarea{
+    resize: none;
+    height: 170px;
+}
+form .item input,form .item textarea,form .item select {
+    padding: 11px 10px;
+    font-weight: normal;
+    /*font-size: 10px;*/
+    line-height: 26px;
+    border: 2px solid #00000080;
+    border-radius: 7px;
+    font-family: 'Tactic Sans';
+}
+
+form .item input::placeholder,form .item textarea::placeholder,form .item select::placeholder {
+    opacity: .4;
+}
+form .item.promocode input {
+    color: var(--promo-color);
+    border-color: var(--promo-color);
+}
+
+@media (max-width: 440px) {
+    div.dialog {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 550px) {
+    div.item.promocode {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+}
+
+@media (max-width: 376px){
+    div.dialog{
+        max-width: 375px;
+        padding: 10px;
+    }
+    div.item.promocode {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    div.item.promocode button {
+        margin-left: 0;
+    }
+}
